@@ -1,0 +1,141 @@
+#include <stdio.h>
+#include <string.h>
+int main(){
+   int opcao=0;
+    float saldo=0, saldo_total=0, valor, valor_1, valor_2, valor_3, valor_4, valor_5, valor_6, valor_7, valor_8, valor_total=0;
+    char texto[100];
+    while(1){
+        printf("\n=== MENU ===\n");
+        printf("O que deseja fazer?\n");
+        printf("1- registrar ou adicionar saldo\n");
+        printf("2- registrar despesas\n");
+        printf("3- mostrar entradas e saidas\n");
+        printf("4- mostrar saldo atual\n");
+        printf("5- mostrar gastos por categoria\n");
+        printf("6- gastos e saldo final do mês\n");
+        printf("7- sair\n");
+        printf("escolha: \n");
+        scanf("%d", &opcao);
+
+        if(opcao==1) {
+            printf("Digite o valor a ser registrado: ");
+            scanf("%f", &valor);
+            saldo += valor;
+            printf("Valor registrado com sucesso!\n");
+        } 
+        else if(opcao==2){
+            while(1){
+            printf("\n== CATEGORIAS DE DESPESA ==\n");
+            printf("1- energia\n");
+            printf("2- agua\n");
+            printf("3- internet\n");
+            printf("4- aluguel\n");
+            printf("5- supermercado\n");
+            printf("6- transporte\n");
+            printf("7- lazer\n");
+            printf("8- outros\n");
+            printf("9- voltar ao menu principal\n");
+            printf("escolha: \n");
+            
+            int categoria;
+            scanf("%d", &categoria);
+                if(categoria == 1) {
+                    printf("Digite o valor da despesa: ");
+                    scanf("%f", &valor_1);
+                    valor_total += valor_1;
+                    printf("Despesa registrada com sucesso!\n");
+                } else if(categoria == 2) {
+                    printf("Digite o valor da despesa: ");
+                    scanf("%f", &valor_2);
+                    valor_total += valor_2;
+                    printf("Despesa registrada com sucesso!\n");
+                } else if (categoria == 3) {
+                    printf("Digite o valor da despesa: ");
+                    scanf("%f", &valor_3);
+                    valor_total += valor_3;
+                    printf("Despesa registrada com sucesso!\n");
+                } else if (categoria == 4) {
+                    printf("Digite o valor da despesa: ");
+                    scanf("%f", &valor_4);
+                    valor_total += valor_4;
+                    printf("Despesa registrada com sucesso!\n");
+                } else if (categoria == 5) {
+                    printf("Digite o valor da despesa: ");
+                    scanf("%f", &valor_5);
+                    valor_total += valor_5;
+                    printf("Despesa registrada com sucesso!\n");
+                } else if (categoria == 6) {
+                    printf("Digite o valor da despesa: ");
+                    scanf("%f", &valor_6);
+                    valor_total += valor_6;
+                    printf("Despesa registrada com sucesso!\n");
+                } else if (categoria == 7) {
+                    printf("Digite o valor da despesa: ");
+                    scanf("%f", &valor_7);
+                    valor_total += valor_7;
+                    printf("Despesa registrada com sucesso!\n");
+                } else if (categoria == 8) {
+                    printf("com o que gastou?: ");
+                    scanf("%s", texto);
+                    printf("Digite o valor da despesa: ");
+                    scanf("%f", &valor_8);
+                    valor_total += valor_8;
+                    printf("Despesa registrada com sucesso!\n");
+                } else if(categoria == 9) {
+                    printf("deseja realmente voltar ao menu? (s/n): ");
+                    char resposta;
+                    scanf(" %c", &resposta);
+                    if(resposta=='s' || resposta=='S') {
+                        printf("retornando ao menu...\n");
+                        opcao=0;
+                        break;
+                    } else if (resposta=='n' || resposta=='N') {
+                        printf("mantendo na tela de registro de despesas...\n");
+                    }
+                } else {
+                    printf("Categoria inválida. Despesa não registrada.\n");
+                } 
+            } 
+        } else if(opcao==3) {
+            printf("mostrando entradas e saidas...\n");
+            printf("o que entrou: R$ %.2f\n", saldo);
+            printf("o que saiu: R$ %.2f\n", valor_total);
+        } 
+        else if(opcao==4) {
+            saldo_total= saldo-valor_total;
+            printf("Saldo atual: R$ %.2f\n", saldo_total);
+        } 
+        else if(opcao==5){
+            printf("mostrando gastos por categoria...\n");
+            printf("energia: R$ %.2f\n", valor_1);
+            printf("agua: R$ %.2f\n", valor_2);
+            printf("internet: R$ %.2f\n", valor_3);
+            printf("aluguel: R$ %.2f\n", valor_4);
+            printf("supermercado: R$ %.2f\n", valor_5);
+            printf("transporte: R$ %.2f\n", valor_6);
+            printf("lazer: R$ %.2f\n", valor_7);
+            printf("outros: R$ %.2f\n", valor_8);
+        } 
+        else if(opcao==6){
+            printf("saldo no final do mês...\n");
+            printf("gastos totais: R$ %.2f\n", valor_total);
+            printf("saldo final: R$ %.2f\n", saldo - valor_total);
+        } 
+        else if(opcao==7){
+            printf("deseja realmente encerrar? (s/n): ");
+            char resposta;
+            scanf(" %c", &resposta);
+            if(resposta=='s' || resposta=='S') {
+                printf("encerrando...\n");
+                break;
+            } else if (resposta=='n' || resposta=='N') {
+                printf("retornando ao menu...\n");
+                opcao=0;
+            }
+        }
+        else{
+            printf("opcao invalida!\n");
+        }
+    }
+    return 0;
+}
