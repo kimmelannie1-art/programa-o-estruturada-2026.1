@@ -49,6 +49,7 @@ int main(){
                 printf("\n");
             }
             printf("\nconsumo maior encontrado: %.2f no setor %d dia %d\n", maior, setorMaior, diaMaior);
+            printf("total geral: %.2f\n", totalGeral);
         }
         else if(opcao==3){
             printf("deseja realmente encerrar? (s/n): ");
