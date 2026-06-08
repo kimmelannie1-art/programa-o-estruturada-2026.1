@@ -1,0 +1,1 @@
+ID Poste: 123456 | Zona: 5443333 | Transformador: 2 | Coordenadas: (13.00, 332323232.00) | Tensão: 234.00V | Corrente: 12.00A | Status Lâmpada: Acesa | Status Rede: OSCILACAO | Timestamp: 0000-00-00 00:00:00
