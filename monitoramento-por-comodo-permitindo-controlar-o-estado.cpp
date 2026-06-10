@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void monitorarComodo(int *estadoComodo, char nomeComodo[20], char nomeAparelho[20], float consumoEnergia) {
+void monitorarComodo(int *estadoComodo, char nomeComodo[20], char nomeAparelho[20], float consumoEnergiaTv, float consumoEnergiaLuz, float consumoEnergiaForno, float consumoEnergiaClimatizador) {
     printf("\n--- ALERTA DE ENERGIA ---\n");
     printf("\n--- menu ---\n");
     printf("1- verificar energia consumida\n");
@@ -18,15 +18,21 @@ void monitorarComodo(int *estadoComodo, char nomeComodo[20], char nomeAparelho[2
         if (*estadoComodo == 0){
             printf("o comodo não esta consumindo energia\n");
         } else {
-            printf("O aparelho %s na %s esta ligado\n", nomeAparelho, nomeComodo);
-            printf("O aparelho %s na %s esta consumindo %.2f kWh\n", nomeAparelho, nomeComodo, consumoEnergia);
+            printf("\n A TV na sala esta ligado\n");
+            printf("O aparelho esta consumindo %.2f kWh\n", consumoEnergiaTv);
+            printf("\n a luz do comodo quarto esta acesa\n");
+            printf("o objeto está está consumindo %.2f kWh\n", consumoEnergiaLuz);
+            printf("\n o forno eletrico da cozinha esta ligado\n");
+            printf(" o forno eletrico esta consumindo %.2f kWh\n", consumoEnergiaForno);
+            printf("\n o climatizador da sala esta ligado\n");
+            printf("o climatizador esta consumindo %.2f kWh\n", consumoEnergiaClimatizador);
         }
     } else if (opcao==2){
         if (*estadoComodo == 1){
             *estadoComodo = 0;
-            printf("sucesso ao desligar o aparelho %s na %s\n", nomeAparelho, nomeComodo);
+            printf("sucesso ao desligar o aparelho\n");
         } else {
-            printf("O aparelho %s na %s já está desligado\n", nomeAparelho, nomeComodo);
+            printf("O aparelho já está desligado\n");
         }
     } else if (opcao==0){
         printf("Encerrando o monitoramento...\n");
@@ -36,12 +42,15 @@ void monitorarComodo(int *estadoComodo, char nomeComodo[20], char nomeAparelho[2
 }
 int main() {
     int estadoComodo = 1; // 1 para ligado, 0 para desligado
-    char nomeComodo[20] = "Sala de Estar";
-    char nomeAparelho[20] = "TV";
-    float consumoEnergia = 0.5; // consumo em kWh
+    char nomesComodos[4][20] = {"Sala de Estar", "Cozinha", "Quarto", "Banheiro"};
+    char nomeAparelho [4][20] = {"TV", "forno eletrico", "luz","climatizador"};
+    float consumoEnergiaTv = 0.5; // consumo em kWh
+    float consumoEnergiaLuz = 0.3; // consumo em kWh
+    float consumoEnergiaForno = 1.0; // consumo em kWh
+    float consumoEnergiaClimatizador = 0.8; // consumo em kWh
     int continuar =1;
     while (continuar==1) {
-        monitorarComodo(&estadoComodo, nomeComodo, nomeAparelho, consumoEnergia);
+        monitorarComodo(&estadoComodo, nomesComodos[0], nomeAparelho[0], consumoEnergiaTv, consumoEnergiaLuz, consumoEnergiaForno, consumoEnergiaClimatizador);
         printf("deseja voltar ao menu de monitoramento? (1 - sim, 0 - nao): ");
         if (scanf("%d", &continuar) != 1){
             printf("Entrada invalida. Encerrando o programa.\n");
